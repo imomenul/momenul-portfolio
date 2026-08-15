@@ -153,8 +153,7 @@
   }
 
   /* ---- About / stats ---- */
-  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;}
-  @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid{max-width:720px;}
   .about-text{font-size:16.5px;color:#c7cbd1;font-weight:300;line-height:1.9;}
   .about-copy .about-text{margin-bottom:16px;}
   .about-copy .about-text:last-child{margin-bottom:0;}
@@ -163,7 +162,8 @@
   ul.about-list li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--gold);}
   ul.about-list li strong{color:#fff;font-weight:600;}
   .about-text strong{color:#fff;font-weight:500;}
-  .stat-block{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;}
+  .stat-block{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0 0 44px;padding-bottom:30px;border-bottom:1px solid var(--line);}
+  @media(max-width:700px){.stat-block{grid-template-columns:1fr 1fr;}}
   .stat-block .s{border-top:1px solid var(--line);padding-top:14px;}
   .stat-block .s .n{font-family:'Playfair Display',serif;font-size:38px;color:var(--gold);line-height:1;}
   .stat-block .s .l{font-size:11.5px;color:var(--muted);letter-spacing:.5px;margin-top:8px;}
@@ -719,7 +719,7 @@
         <span>HRIS &amp; Analytics</span>
         <span>Employer Branding</span>
         <span>Employee Relations</span>
-        <span>Labour Law Compliance (BLA 2015)</span>
+        <span>Labour Law Compliance (BLL 2006 &amp; BLA 2015)</span>
       </div>
     </div>
     <div class="hero-photo">
@@ -735,29 +735,26 @@
 <section id="about">
   <div class="wrap">
     <div class="num-mark">01 — About</div>
-    <h2 class="section-title">Five years of turning HR operations into growth systems.</h2>
+    <h2 class="section-title">Turning HR operations into growth systems.</h2>
+    <div class="stat-block" id="statBlock">
+      <div class="s"><div class="n">5+</div><div class="l">Years in HR</div></div>
+      <div class="s"><div class="n">4</div><div class="l">Organizations</div></div>
+      <div class="s"><div class="n">8</div><div class="l">Certifications</div></div>
+      <div class="s"><div class="n">60+</div><div class="l">Skills endorsed</div></div>
+    </div>
     <div class="about-grid">
       <div class="about-copy">
-        <p class="about-text">I am an HR professional with <strong>5+ years</strong> of experience in Human Resources, Talent Management, Compliance, and Data-Driven HR, passionate about building high-performing, engaging, and people-centric workplaces.</p>
-        <p class="about-text">Currently at <strong>OnnoRokom Projukti Limited</strong>, I work across the employee lifecycle, connecting people strategies with business goals and transforming HR challenges into practical, scalable solutions.</p>
-        <p class="about-text">Throughout my career, I have developed hands-on expertise across:</p>
+        <p class="about-text">I'm an HR professional with <strong>5+ years</strong> of experience in Talent Management, Compliance, and Data-Driven HR. At <strong>OnnoRokom Projukti Limited</strong>, I connect people strategies with business goals, turning day-to-day HR challenges into practical, scalable systems.</p>
+        <p class="about-text">Hands-on expertise across:</p>
         <ul class="about-list" id="aboutExpertiseList">
-          <li><strong>Talent Acquisition &amp; Employer Branding</strong> — Building strong talent pipelines, improving candidate experience, and strengthening employer presence.</li>
-          <li><strong>Performance Management (PMS)</strong> — Designing KPI-driven performance frameworks that improve productivity, accountability, and continuous performance.</li>
-          <li><strong>HR Analytics &amp; HRIS</strong> — Leveraging data, technology, and automation to streamline HR processes and support better decision-making.</li>
-          <li><strong>Employee Engagement &amp; Experience</strong> — Creating initiatives that strengthen workplace culture, collaboration, motivation, and employee satisfaction.</li>
-          <li><strong>Learning &amp; Development (L&amp;D)</strong> — Identifying development needs and fostering a culture of continuous learning and professional growth.</li>
-          <li><strong>HR Policy, Compliance &amp; Operations</strong> — Developing effective HR policies, ensuring compliance, and continuously improving HR processes and practices.</li>
+          <li><strong>Talent Acquisition &amp; Employer Branding</strong> — building pipelines and strengthening employer presence.</li>
+          <li><strong>Performance Management (PMS)</strong> — KPI-driven frameworks for productivity and accountability.</li>
+          <li><strong>HR Analytics &amp; HRIS</strong> — using data and automation to support better decisions.</li>
+          <li><strong>Employee Engagement &amp; Experience</strong> — initiatives that strengthen culture and motivation.</li>
+          <li><strong>Learning &amp; Development (L&amp;D)</strong> — building a culture of continuous growth.</li>
+          <li><strong>HR Policy, Compliance &amp; Operations</strong> — effective policies and continuous process improvement.</li>
         </ul>
-        <p class="about-text">With an <strong>MBA in Management</strong> and a <strong>PGDHRM</strong>, I combine strategic thinking with hands-on HR expertise to address complex people challenges and create measurable organizational impact.</p>
-        <p class="about-text">I believe modern HR should go beyond managing processes — it should enable people, strengthen culture, improve performance, and contribute directly to business growth.</p>
-        <p class="about-text">I enjoy connecting with HR professionals, business leaders, and organizations committed to building modern, strategic, and human-centered workplaces. Let's connect, share ideas, and make work better together.</p>
-      </div>
-      <div class="stat-block" id="statBlock">
-        <div class="s"><div class="n">5+</div><div class="l">Years in HR</div></div>
-        <div class="s"><div class="n">4</div><div class="l">Organizations</div></div>
-        <div class="s"><div class="n">8</div><div class="l">Certifications</div></div>
-        <div class="s"><div class="n">60+</div><div class="l">Skills endorsed</div></div>
+        <p class="about-text">With an <strong>MBA in Management</strong> and a <strong>PGDHRM</strong>, I combine strategic thinking with hands-on execution — because modern HR should go beyond managing processes, and enable people, culture, and business growth instead.</p>
       </div>
     </div>
     <div class="tags" id="skillTags">
@@ -765,7 +762,7 @@
       <span class="tag">Employer Branding</span>
       <span class="tag">KPI &amp; Performance Management</span>
       <span class="tag">HRIS &amp; HR Analytics</span>
-      <span class="tag">Labour Law Compliance (BLA 2015)</span>
+      <span class="tag">Labour Law Compliance (BLL 2006 &amp; BLA 2015)</span>
       <span class="tag">Learning &amp; Development</span>
       <span class="tag">Employee Relations</span>
     </div>
