@@ -164,18 +164,24 @@
   .about-text{font-size:16.5px;color:#c7cbd1;font-weight:300;line-height:1.9;}
   .about-copy .about-text{margin-bottom:16px;}
   .about-copy .about-text:last-child{margin-bottom:0;}
-  ul.about-list{list-style:none;margin:4px 0 20px;}
-  ul.about-list li{font-size:15px;margin-bottom:16px;padding-left:22px;position:relative;color:#c7cbd1;font-weight:300;line-height:1.75;}
-  ul.about-list li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--gold);}
-  ul.about-list li strong{color:#fff;font-weight:600;}
+  .about-expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin:20px 0 26px;}
+  @media(max-width:600px){.about-expertise-grid{grid-template-columns:1fr;}}
+  .about-expertise-item{border-left:2px solid var(--gold);padding-left:16px;}
+  .about-expertise-item h4{font-family:'Playfair Display',serif;font-size:14.5px;color:#fff;font-weight:600;margin-bottom:5px;letter-spacing:.1px;}
+  .about-expertise-item p{font-size:13px;color:#b7bcc4;font-weight:300;line-height:1.65;}
   .about-text strong{color:#fff;font-weight:500;}
   .stat-block{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0 0 44px;padding-bottom:30px;border-bottom:1px solid var(--line);}
   @media(max-width:700px){.stat-block{grid-template-columns:1fr 1fr;}}
   .stat-block .s{border-top:1px solid var(--line);padding-top:14px;}
   .stat-block .s .n{font-family:'Playfair Display',serif;font-size:38px;color:var(--gold);line-height:1;}
   .stat-block .s .l{font-size:11.5px;color:var(--muted);letter-spacing:.5px;margin-top:8px;}
-  .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px;}
-  .tag{border:1px solid var(--line);color:#c7cbd1;padding:7px 15px;border-radius:20px;font-size:12px;}
+  .tags{display:flex;flex-wrap:wrap;gap:11px;margin-top:34px;}
+  .tag{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:9px 16px;font-size:12.5px;color:#c7cbd1;
+    transition:border-color .3s ease,transform .3s ease;
+  }
+  .tag:hover{border-color:rgba(207,159,78,.4);transform:translateY(-2px);}
 
   /* ---- Case studies (editorial blocks) ---- */
   .case{
@@ -362,13 +368,6 @@
   p.sub-note{font-size:13.5px;color:var(--muted);margin-bottom:28px;max-width:560px;}
   .skills-groups{display:flex;flex-direction:column;gap:38px;}
   .skill-group .tags{margin-top:0;}
-  #skills .tags{gap:11px;}
-  #skills .tag{
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:9px 16px;font-size:12.5px;color:#c7cbd1;
-    transition:border-color .3s ease,transform .3s ease;
-  }
-  #skills .tag:hover{border-color:rgba(207,159,78,.4);transform:translateY(-2px);}
 
   /* ---- HR Functional Expertise ---- */
   .hr-func-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
@@ -380,6 +379,7 @@
   .hr-func-card h4{font-family:'Playfair Display',serif;font-size:15.5px;color:#fff;font-weight:600;margin-bottom:8px;}
   .hr-func-card p{font-size:12.5px;color:#b7bcc4;font-weight:300;line-height:1.65;}
   #hrFuncGrid > .sp-add-btn{min-height:100px;margin-top:0;}
+  #aboutExpertiseList > .sp-add-btn{min-height:70px;margin-top:0;}
   .edu-item{margin-bottom:22px;display:flex;gap:14px;align-items:flex-start;}
   .edu-logo{
     flex-shrink:0;width:44px;height:44px;border-radius:10px;
@@ -618,9 +618,9 @@
     .num-mark{ color:#666!important; font-size:11px!important; }
     h2.section-title{ font-size:18px!important; margin-bottom:14px!important; }
     .about-text{ color:#222!important; font-size:12px!important; }
-    ul.about-list li{ color:#222!important; font-size:11px!important; }
-    ul.about-list li strong{ color:#111!important; }
-    ul.about-list li:before{ background:#999!important; }
+    .about-expertise-item{ border-color:#999!important; break-inside:avoid; }
+    .about-expertise-item h4{ color:#111!important; font-size:11.5px!important; }
+    .about-expertise-item p{ color:#333!important; font-size:10px!important; }
     .about-text strong{ color:#000!important; }
     .stat-block .s{ border-color:#ccc!important; }
     .stat-block .s .n{ color:#111!important; font-size:22px!important; }
@@ -754,14 +754,32 @@
       <div class="about-copy">
         <p class="about-text">I'm an HR professional with <strong>5+ years</strong> of experience in Talent Management, Compliance, and Data-Driven HR. At <strong>OnnoRokom Projukti Limited</strong>, I connect people strategies with business goals, turning day-to-day HR challenges into practical, scalable systems.</p>
         <p class="about-text">Hands-on expertise across:</p>
-        <ul class="about-list" id="aboutExpertiseList">
-          <li><strong>Talent Acquisition &amp; Employer Branding</strong> — building pipelines and strengthening employer presence.</li>
-          <li><strong>Performance Management (PMS)</strong> — KPI-driven frameworks for productivity and accountability.</li>
-          <li><strong>HR Analytics &amp; HRIS</strong> — using data and automation to support better decisions.</li>
-          <li><strong>Employee Engagement &amp; Experience</strong> — initiatives that strengthen culture and motivation.</li>
-          <li><strong>Learning &amp; Development (L&amp;D)</strong> — building a culture of continuous growth.</li>
-          <li><strong>HR Policy, Compliance &amp; Operations</strong> — effective policies and continuous process improvement.</li>
-        </ul>
+        <div class="about-expertise-grid" id="aboutExpertiseList">
+          <div class="about-expertise-item">
+            <h4>Talent Acquisition &amp; Employer Branding</h4>
+            <p>Building pipelines and strengthening employer presence.</p>
+          </div>
+          <div class="about-expertise-item">
+            <h4>Performance Management (PMS)</h4>
+            <p>KPI-driven frameworks for productivity and accountability.</p>
+          </div>
+          <div class="about-expertise-item">
+            <h4>HR Analytics &amp; HRIS</h4>
+            <p>Using data and automation to support better decisions.</p>
+          </div>
+          <div class="about-expertise-item">
+            <h4>Employee Engagement &amp; Experience</h4>
+            <p>Initiatives that strengthen culture and motivation.</p>
+          </div>
+          <div class="about-expertise-item">
+            <h4>Learning &amp; Development (L&amp;D)</h4>
+            <p>Building a culture of continuous growth.</p>
+          </div>
+          <div class="about-expertise-item">
+            <h4>HR Policy, Compliance &amp; Operations</h4>
+            <p>Effective policies and continuous process improvement.</p>
+          </div>
+        </div>
         <p class="about-text">With an <strong>MBA in Management</strong> and a <strong>PGDHRM</strong>, I combine strategic thinking with hands-on execution — because modern HR should go beyond managing processes, and enable people, culture, and business growth instead.</p>
       </div>
     </div>
@@ -1502,7 +1520,7 @@
   (function(){
     const EDITABLE_SELECTOR = [
       '.index-label', 'h1.name', '.tagline', '.role-pills span', '.hero-contact a',
-      '.about-text', 'ul.about-list li', 'h2.section-title', '.stat-block .s .n', '.stat-block .s .l', '.tags .tag',
+      '.about-text', '.about-expertise-item h4', '.about-expertise-item p', 'h2.section-title', '.stat-block .s .n', '.stat-block .s .l', '.tags .tag',
       '.case-org', '.case-head h3', '.case-cols p', '.artifact-label',
       '.tl-day', '.tl-step p', 'table.mini th', 'table.mini td',
       '.stat-row .num', '.stat-row .lbl', '.result-line',
@@ -1635,7 +1653,7 @@
       });
     }
 
-    wireRepeat(document.getElementById('aboutExpertiseList'), ':scope > li', 'Add Expertise Area');
+    wireRepeat(document.getElementById('aboutExpertiseList'), ':scope > .about-expertise-item', 'Add Expertise Area');
     wireRepeat(document.querySelector('#experience .wrap'), ':scope > .exp-item', 'Add Experience', { renumber: computeAllExpDurations });
     wireRepeat(document.getElementById('eventsList'), ':scope > .event-item', 'Add Event');
     wireRepeat(document.getElementById('achievementsList'), ':scope > .achieve-item', 'Add Achievement', { renumber: renumberAchievements });
