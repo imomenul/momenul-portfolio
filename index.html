@@ -378,7 +378,7 @@
   .hr-func-card:hover{border-left-color:#e8cd8f;}
   .hr-func-card h4{font-family:'Playfair Display',serif;font-size:14.5px;color:#fff;font-weight:600;margin-bottom:5px;letter-spacing:.1px;}
   .hr-func-card p{font-size:13px;color:#b7bcc4;font-weight:300;line-height:1.65;}
-  #hrFuncGrid > .sp-add-btn, #skillsCore > .sp-add-btn, #skillsTools > .sp-add-btn, #skillsSoft > .sp-add-btn{min-height:70px;margin-top:0;}
+  #skillsCore > .sp-add-btn, #skillsTools > .sp-add-btn, #skillsSoft > .sp-add-btn{min-height:70px;margin-top:0;}
   #aboutExpertiseList > .sp-add-btn{min-height:70px;margin-top:0;}
   .edu-item{margin-bottom:22px;display:flex;gap:14px;align-items:flex-start;}
   .edu-logo{
@@ -849,6 +849,30 @@
         <h4>Compensation Benchmarking</h4>
         <p>Comparing pay structures against market data to stay competitive.</p>
       </div>
+      <div class="hr-func-card">
+        <h4>Attendance &amp; Leave Management</h4>
+        <p>Tracking attendance, leave balances, and time-off policies accurately and fairly.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Learning &amp; Development</h4>
+        <p>Identifying skill gaps and building learning programs that grow people with the business.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Employee Engagement &amp; Experience</h4>
+        <p>Programs and initiatives that keep people motivated, connected, and invested at work.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Career &amp; Succession Planning</h4>
+        <p>Mapping growth paths and building a pipeline of future leaders.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>HR Operations &amp; Documentation</h4>
+        <p>Maintaining accurate employee records, files, and HR documentation across the lifecycle.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Separation &amp; Exit Management</h4>
+        <p>Managing offboarding, exit interviews, and separation processes professionally and compliantly.</p>
+      </div>
     </div>
 
     <div class="sub-head">Systems &amp; Tools</div>
@@ -902,67 +926,6 @@
       <div class="hr-func-card">
         <h4>Adaptability &amp; Problem-Solving</h4>
         <p>Staying effective and resourceful as priorities and challenges shift.</p>
-      </div>
-    </div>
-
-    <div class="sub-head">HR Functional Expertise</div>
-    <p class="sub-note">The full employee lifecycle, end to end — from first hire to final exit.</p>
-    <div class="hr-func-grid" id="hrFuncGrid">
-      <div class="hr-func-card">
-        <h4>Talent Acquisition &amp; Recruitment</h4>
-        <p>Sourcing, screening, interviewing, and hiring the right talent for open roles.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Employer Branding</h4>
-        <p>Positioning the organization as a workplace of choice to attract and retain top talent.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Onboarding &amp; Employee Management</h4>
-        <p>Structured induction and day-to-day employee lifecycle administration from day one.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Attendance &amp; Leave Management</h4>
-        <p>Tracking attendance, leave balances, and time-off policies accurately and fairly.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Payroll &amp; Compensation</h4>
-        <p>Salary processing, benefits administration, and compensation structuring.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Performance Management</h4>
-        <p>KPI-driven goal-setting, reviews, and feedback cycles tied to business results.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Learning &amp; Development</h4>
-        <p>Identifying skill gaps and building learning programs that grow people with the business.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Employee Engagement &amp; Experience</h4>
-        <p>Programs and initiatives that keep people motivated, connected, and invested at work.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Employee Relations</h4>
-        <p>Handling grievances, conflict resolution, and maintaining a fair, transparent workplace.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>HR Policy &amp; Compliance</h4>
-        <p>Drafting and enforcing policies aligned with labour law and organizational standards.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Career &amp; Succession Planning</h4>
-        <p>Mapping growth paths and building a pipeline of future leaders.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>HR Analytics &amp; Reporting</h4>
-        <p>Turning workforce data into insights that inform decisions.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>HR Operations &amp; Documentation</h4>
-        <p>Maintaining accurate employee records, files, and HR documentation across the lifecycle.</p>
-      </div>
-      <div class="hr-func-card">
-        <h4>Separation &amp; Exit Management</h4>
-        <p>Managing offboarding, exit interviews, and separation processes professionally and compliantly.</p>
       </div>
     </div>
   </div>
@@ -1768,7 +1731,6 @@
     wireRepeat(document.getElementById('languagesList'), ':scope > .tag', 'Add Language');
     wireRepeat(document.getElementById('interestsList'), ':scope > .tag', 'Add Interest');
     wireRepeat(document.getElementById('certGrid'), ':scope > .cert-card', 'Add Certificate');
-    wireRepeat(document.getElementById('hrFuncGrid'), ':scope > .hr-func-card', 'Add HR Function');
 
     saveBtn.addEventListener('click', () => {
       const clone = document.documentElement.cloneNode(true);
