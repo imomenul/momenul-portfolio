@@ -233,9 +233,20 @@
   .result-line strong{color:var(--gold);font-weight:500;}
 
   /* ---- Experience narrative ---- */
-  .exp-item{display:grid;grid-template-columns:160px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--line);}
+  .exp-item{display:grid;grid-template-columns:160px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--line);position:relative;}
   @media(max-width:560px){ .exp-item{grid-template-columns:1fr;gap:6px;} }
   .exp-item:first-of-type{border-top:none;}
+  .exp-item:before{
+    content:"";position:absolute;left:170px;top:34px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--gold);border:2px solid var(--bg);z-index:2;
+  }
+  .exp-item:after{
+    content:"";position:absolute;left:174px;top:0;bottom:0;width:1px;background:var(--line);
+  }
+  .exp-item:first-of-type:after{top:39px;}
+  .exp-item:last-of-type:after{bottom:auto;height:39px;}
+  @media(max-width:560px){ .exp-item:before, .exp-item:after{ display:none; } }
   .exp-dates{font-size:12px;color:var(--gold);letter-spacing:.5px;padding-top:4px;}
   .exp-duration{display:block;color:var(--muted);font-size:11px;letter-spacing:.3px;margin-top:4px;font-style:italic;}
   .exp-body h3{font-size:19px;color:#fff;font-weight:600;margin-bottom:4px;}
@@ -640,6 +651,7 @@
     .result-line{ color:#222!important; font-size:12px!important; }
     .result-line strong{ color:#000!important; }
     .exp-item{ border-color:#ddd!important; padding:10px 0!important; break-inside:avoid; }
+    .exp-item:before, .exp-item:after{ display:none!important; }
     .exp-dates{ color:#555!important; }
     .exp-duration{ color:#777!important; }
     .exp-org{ color:#444!important; }
