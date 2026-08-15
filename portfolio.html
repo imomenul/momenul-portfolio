@@ -344,6 +344,17 @@
   p.sub-note{font-size:13.5px;color:var(--muted);margin-bottom:28px;max-width:560px;}
   .skills-groups{display:flex;flex-direction:column;gap:38px;}
   .skill-group .tags{margin-top:0;}
+
+  /* ---- HR Functional Expertise ---- */
+  .hr-func-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+  .hr-func-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:20px 20px 22px;transition:border-color .3s ease,transform .3s ease;position:relative;
+  }
+  .hr-func-card:hover{border-color:rgba(207,159,78,.4);transform:translateY(-3px);}
+  .hr-func-card h4{font-family:'Playfair Display',serif;font-size:15.5px;color:#fff;font-weight:600;margin-bottom:8px;}
+  .hr-func-card p{font-size:12.5px;color:#b7bcc4;font-weight:300;line-height:1.65;}
+  #hrFuncGrid > .sp-add-btn{min-height:100px;margin-top:0;}
   .edu-item{margin-bottom:22px;display:flex;gap:14px;align-items:flex-start;}
   .edu-logo{
     flex-shrink:0;width:44px;height:44px;border-radius:10px;
@@ -614,6 +625,9 @@
     .col-label{ color:#555!important; }
     .sub-head{ color:#111!important; font-size:15px!important; margin-top:16px!important; padding-top:10px!important; border-color:#ddd!important; }
     p.sub-note{ color:#555!important; font-size:11px!important; }
+    .hr-func-card{ background:#fff!important; border-color:#ddd!important; break-inside:avoid; padding:10px 12px!important; }
+    .hr-func-card h4{ color:#111!important; font-size:12.5px!important; }
+    .hr-func-card p{ color:#333!important; font-size:10.5px!important; }
     .edu-logo{ background:#fff!important; border-color:#ccc!important; color:#333!important; }
     .edu-item p{ color:#555!important; }
     ul.cert-list li{ color:#222!important; }
@@ -775,6 +789,59 @@
           <span class="tag">Conflict Resolution</span>
           <span class="tag">Cross-functional Coordination</span>
         </div>
+      </div>
+    </div>
+
+    <div class="sub-head">HR Functional Expertise</div>
+    <p class="sub-note">The full employee lifecycle, end to end — from first hire to final exit.</p>
+    <div class="hr-func-grid" id="hrFuncGrid">
+      <div class="hr-func-card">
+        <h4>Recruitment &amp; Selection</h4>
+        <p>Sourcing, screening, interviewing, and hiring the right talent for open roles.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Onboarding &amp; Employee Management</h4>
+        <p>Structured induction and day-to-day employee lifecycle administration from day one.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Attendance &amp; Leave Management</h4>
+        <p>Tracking attendance, leave balances, and time-off policies accurately and fairly.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Payroll &amp; Compensation</h4>
+        <p>Salary processing, benefits administration, and compensation structuring.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Performance Management</h4>
+        <p>KPI-driven goal-setting, reviews, and feedback cycles tied to business results.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Training &amp; Development</h4>
+        <p>Identifying skill gaps and building learning programs that grow people with the business.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Employee Engagement &amp; Welfare</h4>
+        <p>Programs and initiatives that keep people motivated, healthy, and connected at work.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Employee Relations</h4>
+        <p>Handling grievances, conflict resolution, and maintaining a fair, transparent workplace.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>HR Policy &amp; Compliance</h4>
+        <p>Drafting and enforcing policies aligned with labour law and organizational standards.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Career &amp; Succession Planning</h4>
+        <p>Mapping growth paths and building a pipeline of future leaders.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>HR Analytics &amp; Reporting</h4>
+        <p>Turning workforce data into insights that inform decisions.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Separation &amp; Exit Management</h4>
+        <p>Managing offboarding, exit interviews, and separation processes professionally and compliantly.</p>
       </div>
     </div>
   </div>
@@ -1392,6 +1459,7 @@
       '.stat-row .num', '.stat-row .lbl', '.result-line',
       '.exp-dates', '.exp-body h3', '.exp-org', '.exp-body p',
       '.event-tag', '.event-body h3', '.event-body p', '.event-date',
+      '.hr-func-card h4', '.hr-func-card p',
       '.achieve-num', '.achieve-body h3', '.achieve-body p',
       '.edu-item h4', '.edu-item p', 'ul.cert-list li', '.cert-label',
       '.quote-big p.q', '.quote-big p.who',
@@ -1493,6 +1561,7 @@
     wireRepeat(document.getElementById('languagesList'), ':scope > .tag', 'Add Language');
     wireRepeat(document.getElementById('interestsList'), ':scope > .tag', 'Add Interest');
     wireRepeat(document.getElementById('certGrid'), ':scope > .cert-card', 'Add Certificate');
+    wireRepeat(document.getElementById('hrFuncGrid'), ':scope > .hr-func-card', 'Add HR Function');
 
     saveBtn.addEventListener('click', () => {
       const clone = document.documentElement.cloneNode(true);
