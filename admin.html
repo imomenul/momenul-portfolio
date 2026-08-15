@@ -127,6 +127,14 @@
     </div>
 
     <div class="panel">
+      <h2>Recent Link Clicks</h2>
+      <table>
+        <thead><tr><th>When</th><th>Link</th><th>Visitor Session</th></tr></thead>
+        <tbody id="clicksTable"><tr><td colspan="3" class="empty-row">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
       <h2>Pending Notes <span class="count" id="pendingCount"></span></h2>
       <div id="pendingComments"><p class="loading">Loading…</p></div>
     </div>
@@ -276,12 +284,12 @@
   }
 
   function loadClicks(){
-    sbRest('link_clicks?select=link_type').then(r => {
+    sbRest('link_clicks?select=*&order=created_at.desc&limit=200').then(r => {
       if (handleAuthFail(r)) return null;
       return r.json();
     }).then(rows => {
       if (!rows) return;
-      document.getElementById('statClicks').textContent = rows.length;
+      document.getElementById('statClicks').textContent = rows.length + (rows.length === 200 ? '+' : '');
       const counts = {};
       rows.forEach(r => { counts[r.link_type] = (counts[r.link_type] || 0) + 1; });
       const max = Math.max(1, ...Object.values(counts));
@@ -289,11 +297,21 @@
       const types = Object.keys(counts);
       if (types.length === 0) {
         wrap.innerHTML = '<p class="loading">No clicks recorded yet.</p>';
+      } else {
+        wrap.innerHTML = types.sort((a,b) => counts[b]-counts[a]).map(t => {
+          const pct = Math.round((counts[t]/max)*100);
+          return '<div class="click-bar-row"><div class="lbl">' + escapeHtml(t.replace('_',' ')) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div><div class="num">' + counts[t] + '</div></div>';
+        }).join('');
+      }
+
+      const tbody = document.getElementById('clicksTable');
+      if (rows.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" class="empty-row">No clicks recorded yet.</td></tr>';
         return;
       }
-      wrap.innerHTML = types.sort((a,b) => counts[b]-counts[a]).map(t => {
-        const pct = Math.round((counts[t]/max)*100);
-        return '<div class="click-bar-row"><div class="lbl">' + escapeHtml(t.replace('_',' ')) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div><div class="num">' + counts[t] + '</div></div>';
+      tbody.innerHTML = rows.slice(0, 50).map(r => {
+        const shortSession = (r.session_id || '').replace(/^(sid_|qr_)/, '').slice(0, 10);
+        return '<tr><td>' + fmtDate(r.created_at) + '</td><td>' + escapeHtml((r.link_type || '').replace('_',' ')) + '</td><td class="muted">' + escapeHtml(shortSession) + '</td></tr>';
       }).join('');
     }).catch(() => {});
   }

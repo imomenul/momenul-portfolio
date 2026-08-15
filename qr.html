@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Redirecting…</title>
+<style>
+  body{
+    font-family:-apple-system,Helvetica,Arial,sans-serif;background:#0b0e14;color:#8b93a1;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;font-size:14px;
+  }
+</style>
+</head>
+<body>
+<p>Redirecting to LinkedIn…</p>
+<script>
+(function(){
+  var SB_URL = 'https://vvewmkghyjukxnpavxwc.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZXdta2doeWp1a3hucGF2eHdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMjA0OTUsImV4cCI6MjEwMTc5NjQ5NX0.WmpWOEaPMZoSQ5-Z1yd3clodb1D4UL17SNCc3BgQ2gc';
+  var dest = 'https://www.linkedin.com/in/momenulhrd/';
+  var sessionId = 'qr_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
+  var done = false;
+  function go(){
+    if (done) return;
+    done = true;
+    location.href = dest;
+  }
+  fetch(SB_URL + '/rest/v1/link_clicks', {
+    method: 'POST',
+    headers: {
+      'apikey': SB_KEY,
+      'Authorization': 'Bearer ' + SB_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ session_id: sessionId, link_type: 'qr_scan' })
+  }).catch(function(){}).finally(go);
+  setTimeout(go, 1200);
+})();
+</script>
+</body>
+</html>
