@@ -370,15 +370,15 @@
   .skill-group .tags{margin-top:0;}
 
   /* ---- HR Functional Expertise ---- */
-  .hr-func-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+  .hr-func-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px 28px;}
   .hr-func-card{
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:20px 20px 22px;transition:border-color .3s ease,transform .3s ease;position:relative;
+    border-left:2px solid var(--gold);padding:2px 4px 2px 16px;
+    transition:border-color .3s ease;position:relative;
   }
-  .hr-func-card:hover{border-color:rgba(207,159,78,.4);transform:translateY(-3px);}
-  .hr-func-card h4{font-family:'Playfair Display',serif;font-size:15.5px;color:#fff;font-weight:600;margin-bottom:8px;}
-  .hr-func-card p{font-size:12.5px;color:#b7bcc4;font-weight:300;line-height:1.65;}
-  #hrFuncGrid > .sp-add-btn{min-height:100px;margin-top:0;}
+  .hr-func-card:hover{border-left-color:#e8cd8f;}
+  .hr-func-card h4{font-family:'Playfair Display',serif;font-size:14.5px;color:#fff;font-weight:600;margin-bottom:5px;letter-spacing:.1px;}
+  .hr-func-card p{font-size:13px;color:#b7bcc4;font-weight:300;line-height:1.65;}
+  #hrFuncGrid > .sp-add-btn, #skillsCore > .sp-add-btn, #skillsTools > .sp-add-btn, #skillsSoft > .sp-add-btn{min-height:70px;margin-top:0;}
   #aboutExpertiseList > .sp-add-btn{min-height:70px;margin-top:0;}
   .edu-item{margin-bottom:22px;display:flex;gap:14px;align-items:flex-start;}
   .edu-logo{
@@ -656,9 +656,9 @@
     .col-label{ color:#555!important; }
     .sub-head{ color:#111!important; font-size:15px!important; margin-top:16px!important; padding-top:10px!important; border-color:#ddd!important; }
     p.sub-note{ color:#555!important; font-size:11px!important; }
-    .hr-func-card{ background:#fff!important; border-color:#ddd!important; break-inside:avoid; padding:10px 12px!important; }
-    .hr-func-card h4{ color:#111!important; font-size:12.5px!important; }
-    .hr-func-card p{ color:#333!important; font-size:10.5px!important; }
+    .hr-func-card{ border-color:#999!important; break-inside:avoid; }
+    .hr-func-card h4{ color:#111!important; font-size:11.5px!important; }
+    .hr-func-card p{ color:#333!important; font-size:10px!important; }
     .edu-logo{ background:#fff!important; border-color:#ccc!important; color:#333!important; }
     .edu-item p{ color:#555!important; }
     ul.cert-list li{ color:#222!important; }
@@ -777,22 +777,12 @@
           </div>
           <div class="about-expertise-item">
             <h4>HR Policy, Compliance &amp; Operations</h4>
-            <p>Effective policies and continuous process improvement.</p>
+            <p>Effective policies, labour law compliance (BLL 2006 &amp; BLA 2015), and continuous process improvement.</p>
           </div>
         </div>
         <p class="about-text">With an <strong>MBA in Management</strong> and a <strong>PGDHRM</strong>, I combine strategic thinking with hands-on execution — because modern HR should go beyond managing processes, and enable people, culture, and business growth instead.</p>
       </div>
     </div>
-    <div class="tags" id="skillTags">
-      <span class="tag">Talent Acquisition</span>
-      <span class="tag">Employer Branding</span>
-      <span class="tag">KPI &amp; Performance Management</span>
-      <span class="tag">HRIS &amp; HR Analytics</span>
-      <span class="tag">Labour Law Compliance (BLL 2006 &amp; BLA 2015)</span>
-      <span class="tag">Learning &amp; Development</span>
-      <span class="tag">Employee Relations</span>
-    </div>
-
     <div class="sub-head">A Little Beyond the CV</div>
     <div class="skills-groups">
       <div class="skill-group">
@@ -816,38 +806,102 @@
   <div class="wrap">
     <div class="num-mark">02 — Skills</div>
     <h2 class="section-title">What I bring to the table.</h2>
-    <div class="skills-groups">
-      <div class="skill-group">
-        <div class="col-label">Core HR</div>
-        <div class="tags" id="skillsCore">
-          <span class="tag">Talent Acquisition</span>
-          <span class="tag">Onboarding &amp; Induction</span>
-          <span class="tag">KPI &amp; Performance Management</span>
-          <span class="tag">HR Policy &amp; Compliance</span>
-          <span class="tag">Employee Relations</span>
-          <span class="tag">Payroll &amp; Benefits Administration</span>
-          <span class="tag">Workforce Planning</span>
-          <span class="tag">Grievance Handling / Domestic Inquiry</span>
-          <span class="tag">Employer Branding</span>
-        </div>
+    <div class="sub-head">Core HR</div>
+    <p class="sub-note">The foundational HR practices behind every function below.</p>
+    <div class="hr-func-grid" id="skillsCore">
+      <div class="hr-func-card">
+        <h4>Talent Acquisition</h4>
+        <p>Sourcing and hiring the right people for the right roles, efficiently and fairly.</p>
       </div>
-      <div class="skill-group">
-        <div class="col-label">Systems &amp; Tools</div>
-        <div class="tags" id="skillsTools">
-          <span class="tag">HRIS &amp; HR Analytics</span>
-          <span class="tag">MS Excel (VLOOKUP, Pivot Tables)</span>
-          <span class="tag">Applicant Tracking Systems</span>
-          <span class="tag">MS Office Suite</span>
-        </div>
+      <div class="hr-func-card">
+        <h4>Onboarding &amp; Induction</h4>
+        <p>Structured first-day-to-first-90-days journeys that set new hires up to succeed.</p>
       </div>
-      <div class="skill-group">
-        <div class="col-label">Leadership &amp; Soft Skills</div>
-        <div class="tags" id="skillsSoft">
-          <span class="tag">Team Leadership</span>
-          <span class="tag">Stakeholder Communication</span>
-          <span class="tag">Conflict Resolution</span>
-          <span class="tag">Cross-functional Coordination</span>
-        </div>
+      <div class="hr-func-card">
+        <h4>KPI &amp; Performance Management</h4>
+        <p>Goal-setting and review cycles that tie individual output to business results.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>HR Policy &amp; Compliance</h4>
+        <p>Drafting and enforcing policies aligned with labour law and company standards.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Employee Relations</h4>
+        <p>Handling grievances and disputes fairly, keeping the workplace transparent and trusted.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Payroll &amp; Benefits Administration</h4>
+        <p>Accurate salary processing and benefits management, on time, every time.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Workforce Planning</h4>
+        <p>Forecasting headcount and skill needs ahead of business demand.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Grievance Handling / Domestic Inquiry</h4>
+        <p>Investigating workplace complaints through fair, documented processes.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Employer Branding</h4>
+        <p>Shaping how candidates and employees see the organization as a place to work.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Compensation Benchmarking</h4>
+        <p>Comparing pay structures against market data to stay competitive.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Systems &amp; Tools</div>
+    <p class="sub-note">The platforms and software behind day-to-day HR execution.</p>
+    <div class="hr-func-grid" id="skillsTools">
+      <div class="hr-func-card">
+        <h4>HRIS &amp; HR Analytics</h4>
+        <p>Using HR systems and data to track metrics and support decisions.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>MS Excel (VLOOKUP, Pivot Tables)</h4>
+        <p>Building reports, trackers, and analysis with advanced spreadsheet functions.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Applicant Tracking Systems</h4>
+        <p>Managing candidate pipelines from application to offer inside an ATS.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>MS Office Suite</h4>
+        <p>Day-to-day HR documentation, presentations, and correspondence.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Job Portals &amp; Sourcing Platforms (BDJobs, LinkedIn)</h4>
+        <p>Sourcing and engaging candidates across major hiring platforms.</p>
+      </div>
+    </div>
+
+    <div class="sub-head">Leadership &amp; Soft Skills</div>
+    <p class="sub-note">The people skills that make the technical skills work in practice.</p>
+    <div class="hr-func-grid" id="skillsSoft">
+      <div class="hr-func-card">
+        <h4>Team Leadership</h4>
+        <p>Guiding and motivating teams toward shared goals.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Stakeholder Communication</h4>
+        <p>Clear, timely communication with employees, managers, and leadership.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Conflict Resolution</h4>
+        <p>Mediating disagreements to reach fair, workable outcomes.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Cross-functional Coordination</h4>
+        <p>Working across departments to keep HR initiatives aligned with the business.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Negotiation &amp; Influencing</h4>
+        <p>Building agreement and buy-in across different interests and priorities.</p>
+      </div>
+      <div class="hr-func-card">
+        <h4>Adaptability &amp; Problem-Solving</h4>
+        <p>Staying effective and resourceful as priorities and challenges shift.</p>
       </div>
     </div>
 
@@ -1663,10 +1717,9 @@
     wireRepeat(document.getElementById('coursesList'), ':scope > li', 'Add Course');
     wireRepeat(document.getElementById('rolePills'), ':scope > span', 'Add Role Pill');
     wireRepeat(document.getElementById('statBlock'), ':scope > .s', 'Add Stat');
-    wireRepeat(document.getElementById('skillTags'), ':scope > .tag', 'Add Skill');
-    wireRepeat(document.getElementById('skillsCore'), ':scope > .tag', 'Add Skill');
-    wireRepeat(document.getElementById('skillsTools'), ':scope > .tag', 'Add Skill');
-    wireRepeat(document.getElementById('skillsSoft'), ':scope > .tag', 'Add Skill');
+    wireRepeat(document.getElementById('skillsCore'), ':scope > .hr-func-card', 'Add Skill');
+    wireRepeat(document.getElementById('skillsTools'), ':scope > .hr-func-card', 'Add Skill');
+    wireRepeat(document.getElementById('skillsSoft'), ':scope > .hr-func-card', 'Add Skill');
     wireRepeat(document.getElementById('languagesList'), ':scope > .tag', 'Add Language');
     wireRepeat(document.getElementById('interestsList'), ':scope > .tag', 'Add Interest');
     wireRepeat(document.getElementById('certGrid'), ':scope > .cert-card', 'Add Certificate');
