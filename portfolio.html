@@ -745,8 +745,8 @@
     <div class="num-mark">01 — About</div>
     <h2 class="section-title">Turning HR operations into growth systems.</h2>
     <div class="stat-block" id="statBlock">
-      <div class="s"><div class="n">5+</div><div class="l">Years in HR</div></div>
-      <div class="s"><div class="n">4</div><div class="l">Organizations</div></div>
+      <div class="s" data-stat="years"><div class="n">5+</div><div class="l">Years in HR</div></div>
+      <div class="s" data-stat="orgs"><div class="n">4</div><div class="l">Organizations</div></div>
       <div class="s"><div class="n">8</div><div class="l">Certifications</div></div>
       <div class="s"><div class="n">60+</div><div class="l">Skills endorsed</div></div>
     </div>
@@ -1616,31 +1616,49 @@
     }
     gearBtn.addEventListener('click', toggleEdit);
 
-    function computeExpDuration(rangeText){
-      const MONTHS = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
-      if (!rangeText || rangeText.indexOf('—') === -1) return '';
+    const MONTH_NAMES = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+
+    function parseExpRange(rangeText){
+      if (!rangeText || rangeText.indexOf('—') === -1) return null;
       const parts = rangeText.split('—');
       const startStr = parts[0].trim();
       const endStr = (parts[1] || '').trim();
       const sm = startStr.match(/([A-Za-z]{3})[a-z]*\.?\s+(\d{4})/);
-      if (!sm) return '';
-      const startDate = new Date(parseInt(sm[2], 10), MONTHS[sm[1].toLowerCase()], 1);
-      let endDate;
+      if (!sm) return null;
+      const startDate = new Date(parseInt(sm[2], 10), MONTH_NAMES[sm[1].toLowerCase()], 1);
+      let endDate, isPresent = false;
       if (/present/i.test(endStr)) {
-        endDate = new Date();
+        const now = new Date();
+        endDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        isPresent = true;
       } else {
         const em = endStr.match(/([A-Za-z]{3})[a-z]*\.?\s+(\d{4})/);
-        if (!em) return '';
-        endDate = new Date(parseInt(em[2], 10), MONTHS[em[1].toLowerCase()], 1);
+        if (!em) return null;
+        endDate = new Date(parseInt(em[2], 10), MONTH_NAMES[em[1].toLowerCase()], 1);
       }
-      let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+      return { startDate, endDate, isPresent };
+    }
+
+    function monthsBetweenInclusive(startDate, endDate){
+      // Counts the start month's 1st through the end month's last day as whole months (inclusive on both ends).
+      let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth()) + 1;
       if (months < 1) months = 1;
+      return months;
+    }
+
+    function formatYrsMos(months){
       const yrs = Math.floor(months / 12);
       const mos = months % 12;
       const bits = [];
       if (yrs > 0) bits.push(yrs + (yrs === 1 ? ' yr' : ' yrs'));
       if (mos > 0) bits.push(mos + (mos === 1 ? ' mo' : ' mos'));
       return bits.length ? bits.join(' ') : '1 mo';
+    }
+
+    function computeExpDuration(rangeText){
+      const parsed = parseExpRange(rangeText);
+      if (!parsed) return '';
+      return formatYrsMos(monthsBetweenInclusive(parsed.startDate, parsed.endDate));
     }
 
     function computeAllExpDurations(){
@@ -1652,9 +1670,36 @@
         durEl.textContent = dur ? ('· ' + dur) : '';
       });
     }
-    computeAllExpDurations();
+
+    function computeAboutStats(){
+      const items = document.querySelectorAll('#experience .exp-item');
+      const orgsEl = document.querySelector('#statBlock [data-stat="orgs"] .n');
+      if (orgsEl) orgsEl.textContent = String(items.length);
+
+      let earliest = null, latest = null;
+      items.forEach(item => {
+        const rangeEl = item.querySelector('.exp-range');
+        if (!rangeEl) return;
+        const parsed = parseExpRange(rangeEl.textContent);
+        if (!parsed) return;
+        if (!earliest || parsed.startDate < earliest) earliest = parsed.startDate;
+        if (!latest || parsed.endDate > latest) latest = parsed.endDate;
+      });
+      const yearsEl = document.querySelector('#statBlock [data-stat="years"] .n');
+      if (yearsEl && earliest && latest) {
+        const totalMonths = monthsBetweenInclusive(earliest, latest);
+        const totalYrs = Math.max(Math.floor(totalMonths / 12), 1);
+        yearsEl.textContent = totalYrs + '+';
+      }
+    }
+
+    function refreshExpData(){
+      computeAllExpDurations();
+      computeAboutStats();
+    }
+    refreshExpData();
     document.addEventListener('blur', (e) => {
-      if (e.target && e.target.classList && e.target.classList.contains('exp-range')) computeAllExpDurations();
+      if (e.target && e.target.classList && e.target.classList.contains('exp-range')) refreshExpData();
     }, true);
 
     function renumberAchievements(){
@@ -1708,7 +1753,7 @@
     }
 
     wireRepeat(document.getElementById('aboutExpertiseList'), ':scope > .about-expertise-item', 'Add Expertise Area');
-    wireRepeat(document.querySelector('#experience .wrap'), ':scope > .exp-item', 'Add Experience', { renumber: computeAllExpDurations });
+    wireRepeat(document.querySelector('#experience .wrap'), ':scope > .exp-item', 'Add Experience', { renumber: refreshExpData });
     wireRepeat(document.getElementById('eventsList'), ':scope > .event-item', 'Add Event');
     wireRepeat(document.getElementById('achievementsList'), ':scope > .achieve-item', 'Add Achievement', { renumber: renumberAchievements });
     wireRepeat(document.querySelector('#testimonials .wrap'), ':scope > .quote-big', 'Add Testimonial');
