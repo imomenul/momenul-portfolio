@@ -299,6 +299,18 @@
     -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a5 5 0 015 5v4a5 5 0 01-10 0V7a5 5 0 015-5zm-7 9a1 1 0 011 1 6 6 0 0012 0 1 1 0 112 0 8 8 0 01-7 7.94V22h-2v-2.06A8 8 0 014 12a1 1 0 011-1z'/%3E%3C/svg%3E");
     mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a5 5 0 015 5v4a5 5 0 01-10 0V7a5 5 0 015-5zm-7 9a1 1 0 011 1 6 6 0 0012 0 1 1 0 112 0 8 8 0 01-7 7.94V22h-2v-2.06A8 8 0 014 12a1 1 0 011-1z'/%3E%3C/svg%3E");
   }
+  .event-photo[data-ph="onboarding"] .event-photo-ph:before{
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a2 2 0 00-2 2v1H4a2 2 0 00-2 2v3h20V7a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-4zm0 3V4h4v1h-4zM2 11v8a2 2 0 002 2h16a2 2 0 002-2v-8H2z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a2 2 0 00-2 2v1H4a2 2 0 00-2 2v3h20V7a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-4zm0 3V4h4v1h-4zM2 11v8a2 2 0 002 2h16a2 2 0 002-2v-8H2z'/%3E%3C/svg%3E");
+  }
+  .event-photo[data-ph="welfare"] .event-photo-ph:before{
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-6.7-4.35-9.33-8.02C.9 10.28 1.3 6.6 4.36 4.86 6.6 3.6 9.1 4.2 12 7c2.9-2.8 5.4-3.4 7.64-2.14 3.06 1.74 3.46 5.42 1.69 8.12C18.7 16.65 12 21 12 21z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-6.7-4.35-9.33-8.02C.9 10.28 1.3 6.6 4.36 4.86 6.6 3.6 9.1 4.2 12 7c2.9-2.8 5.4-3.4 7.64-2.14 3.06 1.74 3.46 5.42 1.69 8.12C18.7 16.65 12 21 12 21z'/%3E%3C/svg%3E");
+  }
+  .event-photo[data-ph="team"] .event-photo-ph:before{
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z'/%3E%3C/svg%3E");
+  }
   .event-photo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;}
   .event-photo.has-photo .event-photo-img{display:block;}
   .event-photo.has-photo .event-photo-ph{display:none;}
@@ -1032,10 +1044,75 @@
             <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
           </div>
           <div class="event-body">
-            <span class="event-tag">Conference</span>
-            <h3><span class="editme">Add event title</span></h3>
-            <p><span class="editme">Add a short description of the event</span></p>
+            <span class="event-tag">Recruitment</span>
+            <h3>New Hire Recruitment</h3>
+            <p>Welcoming newly recruited team members at OnnoRokom Projukti Limited.</p>
             <span class="event-date editme">Add date</span>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-photo" data-ph="onboarding">
+            <div class="event-photo-ph"></div>
+            <img class="event-photo-img" alt="">
+            <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Onboarding</span>
+            <h3>New Hire Onboarding Session</h3>
+            <p>Facilitating onboarding for new joiners at OnnoRokom Projukti Limited.</p>
+            <span class="event-date editme">Add date</span>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-photo" data-ph="welfare">
+            <div class="event-photo-ph"></div>
+            <img class="event-photo-img" alt="">
+            <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Welfare</span>
+            <h3>Day Care Baby Program</h3>
+            <p>Employee welfare initiative supporting working parents through an on-site day care program at Fakir Fashion Limited.</p>
+            <span class="event-date editme">Add date</span>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-photo" data-ph="team">
+            <div class="event-photo-ph"></div>
+            <img class="event-photo-img" alt="">
+            <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Team Building</span>
+            <h3>OPL Day — Team Building</h3>
+            <p>Company day celebration and team-building activity with the OnnoRokom Projukti team.</p>
+            <span class="event-date editme">Add date</span>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-photo" data-ph="team">
+            <div class="event-photo-ph"></div>
+            <img class="event-photo-img" alt="">
+            <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Team Building</span>
+            <h3>Annual Team Tour</h3>
+            <p>Company-wide annual tour and team-building trip with the OnnoRokom Projukti team.</p>
+            <span class="event-date editme">Add date</span>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-photo" data-ph="conference">
+            <div class="event-photo-ph"></div>
+            <img class="event-photo-img" alt="">
+            <label class="event-photo-upload" title="Add / change photo">📷<input type="file" accept="image/*" class="event-photo-input"></label>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Conference</span>
+            <h3>AI &amp; Developer Conference</h3>
+            <p>Attended a technology conference on AI and developer tools, organized by BDJobs — exploring platforms like ChatGPT, GitHub Copilot, and Gemini.</p>
+            <span class="event-date">Feb 2026</span>
           </div>
         </div>
       </div>
