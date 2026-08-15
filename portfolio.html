@@ -321,6 +321,14 @@
   @media(max-width:900px){.grid3{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.grid3{grid-template-columns:1fr;}}
   .col-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:18px;font-weight:600;}
+
+  /* ---- Sub-sections inside merged sections ---- */
+  .sub-head{
+    font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:#fff;
+    margin:0 0 6px;padding-top:0;
+  }
+  .sub-head:not(:first-of-type){margin-top:54px;padding-top:38px;border-top:1px solid var(--line);}
+  p.sub-note{font-size:13.5px;color:var(--muted);margin-bottom:28px;max-width:560px;}
   .skills-groups{display:flex;flex-direction:column;gap:38px;}
   .skill-group .tags{margin-top:0;}
   .edu-item{margin-bottom:22px;display:flex;gap:14px;align-items:flex-start;}
@@ -591,6 +599,8 @@
     .achieve-num{ color:#111!important; }
     .achieve-body p{ color:#222!important; font-size:11.5px!important; max-width:none!important; }
     .col-label{ color:#555!important; }
+    .sub-head{ color:#111!important; font-size:15px!important; margin-top:16px!important; padding-top:10px!important; border-color:#ddd!important; }
+    p.sub-note{ color:#555!important; font-size:11px!important; }
     .edu-logo{ background:#fff!important; border-color:#ccc!important; color:#333!important; }
     .edu-item p{ color:#555!important; }
     ul.cert-list li{ color:#222!important; }
@@ -627,15 +637,10 @@
     <a href="#about" class="navlink">About</a>
     <a href="#skills" class="navlink">Skills</a>
     <a href="#experience" class="navlink">Experience</a>
-    <a href="#events" class="navlink">Events</a>
-    <a href="#achievements" class="navlink">Achievements</a>
+    <a href="#highlights" class="navlink">Highlights</a>
     <a href="#education" class="navlink">Education</a>
-    <a href="#training" class="navlink">Training</a>
-    <a href="#courses" class="navlink">Courses</a>
-    <a href="#certificates" class="navlink">Certificates</a>
-    <a href="#more" class="navlink">More</a>
+    <a href="#credentials" class="navlink">Credentials</a>
     <a href="#testimonials" class="navlink">Praise</a>
-    <a href="#endorse" class="navlink">Endorse</a>
     <a href="#contact" class="navlink">Contact</a>
   </div>
 </nav>
@@ -645,16 +650,11 @@
   <a href="#about" class="rail-dot" data-label="About">01</a>
   <a href="#skills" class="rail-dot" data-label="Skills">02</a>
   <a href="#experience" class="rail-dot" data-label="Experience">03</a>
-  <a href="#events" class="rail-dot" data-label="Events">04</a>
-  <a href="#achievements" class="rail-dot" data-label="Achievements">05</a>
-  <a href="#education" class="rail-dot" data-label="Education">06</a>
-  <a href="#training" class="rail-dot" data-label="Training">07</a>
-  <a href="#courses" class="rail-dot" data-label="Courses">08</a>
-  <a href="#certificates" class="rail-dot" data-label="Certificates">09</a>
-  <a href="#more" class="rail-dot" data-label="More">10</a>
-  <a href="#testimonials" class="rail-dot" data-label="Praise">11</a>
-  <a href="#endorse" class="rail-dot" data-label="Endorse">12</a>
-  <a href="#contact" class="rail-dot" data-label="Contact">13</a>
+  <a href="#highlights" class="rail-dot" data-label="Highlights">04</a>
+  <a href="#education" class="rail-dot" data-label="Education">05</a>
+  <a href="#credentials" class="rail-dot" data-label="Credentials">06</a>
+  <a href="#testimonials" class="rail-dot" data-label="Praise">07</a>
+  <a href="#contact" class="rail-dot" data-label="Contact">08</a>
 </div>
 
 <header class="hero">
@@ -706,6 +706,23 @@
       <span class="tag">Learning &amp; Development</span>
       <span class="tag">Employee Relations</span>
     </div>
+
+    <div class="sub-head">A Little Beyond the CV</div>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <div class="col-label">Languages</div>
+        <div class="tags" id="languagesList">
+          <span class="tag">Bengali — Native</span>
+          <span class="tag">English — Professional Working Proficiency</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="col-label">Interests</div>
+        <div class="tags" id="interestsList">
+          <span class="tag editme">Add an interest</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -750,6 +767,8 @@
   </div>
 </section>
 
+
+
 <section id="experience">
   <div class="wrap">
     <div class="num-mark">03 — Experience</div>
@@ -784,11 +803,15 @@
   </div>
 </section>
 
-<section id="events">
+
+
+<section id="highlights">
   <div class="wrap">
-    <div class="num-mark">04 — Events</div>
-    <h2 class="section-title">Where I've shown up for HR.</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-top:-24px;margin-bottom:36px;max-width:560px;">Job fairs, presentations, conferences — a quick look, in motion. Hover to pause, click a card to read more.</p>
+    <div class="num-mark">04 — Highlights</div>
+    <h2 class="section-title">Where I've shown up, and what moved forward.</h2>
+
+    <div class="sub-head">Events</div>
+    <p class="sub-note">Job fairs, presentations, conferences — a quick look, in motion. Hover to pause, click a card to read more.</p>
     <div class="events-rail" id="eventsRail">
       <div class="events-track" id="eventsList">
         <div class="event-item">
@@ -833,13 +856,8 @@
       </div>
     </div>
     <div class="events-dots" id="eventsDots"></div>
-  </div>
-</section>
 
-<section id="achievements">
-  <div class="wrap">
-    <div class="num-mark">05 — Achievements</div>
-    <h2 class="section-title">Milestones along the way.</h2>
+    <div class="sub-head">Achievements</div>
     <div id="achievementsList">
       <div class="achieve-item">
         <div class="achieve-num">01</div>
@@ -861,7 +879,7 @@
 
 <section id="education">
   <div class="wrap">
-    <div class="num-mark">06 — Education</div>
+    <div class="num-mark">05 — Education</div>
     <h2 class="section-title">Formal grounding behind the practice.</h2>
     <div id="degreesList">
       <div class="edu-item">
@@ -903,10 +921,14 @@
   </div>
 </section>
 
-<section id="training">
+
+
+<section id="credentials">
   <div class="wrap">
-    <div class="num-mark">07 — Training</div>
-    <h2 class="section-title">Kept current with hands-on training.</h2>
+    <div class="num-mark">06 — Credentials</div>
+    <h2 class="section-title">Training, coursework, and proof on file.</h2>
+
+    <div class="sub-head">Training</div>
     <ul class="cert-list" id="trainingList">
       <li>Training on Just In Time and Lean Management — National Productivity Organization (2023)</li>
       <li>Training on Domestic Inquiry (BLL 2006 &amp; BLA 2015) — Fakir Fashion Limited (2023)</li>
@@ -916,24 +938,14 @@
       <li>Training on Welfare Responsibility — Fakir Fashion Limited (May 2023)</li>
       <li>Basic Training on MS Excel Program — Fakir Fashion Limited (Apr 2023)</li>
     </ul>
-  </div>
-</section>
 
-<section id="courses">
-  <div class="wrap">
-    <div class="num-mark">08 — Courses</div>
-    <h2 class="section-title">Professional-degree coursework.</h2>
+    <div class="sub-head">Courses</div>
     <ul class="cert-list" id="coursesList">
       <li>Post Graduation Diploma in Human Resources Management — Associated with United International University</li>
     </ul>
-  </div>
-</section>
 
-<section id="certificates">
-  <div class="wrap">
-    <div class="num-mark">09 — Certificate Gallery</div>
-    <h2 class="section-title">Proof, on file.</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-top:-24px;margin-bottom:36px;max-width:560px;">Scanned copies of training and course certificates. Click the camera icon in edit mode to add one.</p>
+    <div class="sub-head">Certificate Gallery</div>
+    <p class="sub-note">Scanned copies of training and course certificates. Click the camera icon in edit mode to add one.</p>
     <div class="cert-grid" id="certGrid">
       <div class="cert-card">
         <div class="cert-photo">
@@ -947,32 +959,10 @@
   </div>
 </section>
 
-<section id="more">
-  <div class="wrap">
-    <div class="num-mark">10 — More About Me</div>
-    <h2 class="section-title">A little beyond the CV.</h2>
-    <div class="skills-groups">
-      <div class="skill-group">
-        <div class="col-label">Languages</div>
-        <div class="tags" id="languagesList">
-          <span class="tag">Bengali — Native</span>
-          <span class="tag">English — Professional Working Proficiency</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="col-label">Interests</div>
-        <div class="tags" id="interestsList">
-          <span class="tag editme">Add an interest</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="testimonials">
   <div class="wrap">
-    <div class="num-mark">11 — Praise</div>
-    <h2 class="section-title">What colleagues say.</h2>
+    <div class="num-mark">07 — Praise</div>
+    <h2 class="section-title">What colleagues say — and what you might too.</h2>
 
     <div class="quote-big">
       <span class="mark">"</span>
@@ -985,14 +975,9 @@
       <p class="q">His strong interpersonal skills and ability to effectively communicate with team members and management alike greatly contributed to the smooth functioning of our HR department.</p>
       <p class="who">MD. ASADUL ISLAM — Deputy Manager (Plant Lead), HR, Admin &amp; Compliance</p>
     </div>
-  </div>
-</section>
 
-<section id="endorse">
-  <div class="wrap">
-    <div class="num-mark">12 — Endorse Me</div>
-    <h2 class="section-title">Worked with me? Leave a note.</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-top:-24px;margin-bottom:32px;max-width:560px;">Your note goes into a short review queue — it appears below once approved.</p>
+    <div class="sub-head">Leave a Note</div>
+    <p class="sub-note">Worked with me? Your note goes into a short review queue — it appears below once approved.</p>
     <form class="endorse-form" id="endorseForm">
       <input type="text" id="endorseName" placeholder="Your name" maxlength="80" required>
       <input type="email" id="endorseEmail" placeholder="Email (optional, kept private)" maxlength="120">
@@ -1008,7 +993,7 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="num-mark">13 — Contact</div>
+    <div class="num-mark">08 — Contact</div>
     <div class="cta">Let's talk HR strategy, <em>talent</em>, or culture.</div>
 
     <div class="footer-columns">
@@ -1032,15 +1017,10 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#events">Events</a>
-        <a href="#achievements">Achievements</a>
+        <a href="#highlights">Highlights</a>
         <a href="#education">Education</a>
-        <a href="#training">Training</a>
-        <a href="#courses">Courses</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#more">More</a>
+        <a href="#credentials">Credentials</a>
         <a href="#testimonials">Praise</a>
-        <a href="#endorse">Endorse</a>
       </div>
 
       <div class="footer-col">
@@ -1393,7 +1373,7 @@
     gearBtn.addEventListener('click', toggleEdit);
 
     function renumberAchievements(){
-      document.querySelectorAll('#achievements .achieve-item').forEach((a, i) => {
+      document.querySelectorAll('#achievementsList .achieve-item').forEach((a, i) => {
         const num = a.querySelector('.achieve-num');
         if (num) num.textContent = String(i + 1).padStart(2, '0');
       });
